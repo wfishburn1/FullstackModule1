@@ -2,12 +2,14 @@ const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1';
 const dbURI = `mongodb://${host}/travlr`;
 const readLine = require('readline');
+
 // Build the connection string and set the connection timeout.
 // timeout is in milliseconds.
 const connect = () => {
 setTimeout(() => mongoose.connect(dbURI, {
-}), 5000);
+}), 1000);
 }
+
 // Monitor connection events
 mongoose.connection.on('connected', () => {
 console.log(`Mongoose connected to ${dbURI}`);
