@@ -8,11 +8,16 @@ var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
 var apiRouter = require('./app_api/routes/index');
+var registerRouter = require('./app_api/routes/index');
 
 var handlebars = require('hbs');
 
 //Bring in the database
 require('./app_api/models/db');
+
+//Bring in registration endpoint by pulling in dotenv module
+require('dotenv').config();
+
 
 var app = express();
 
@@ -44,6 +49,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
 app.use('/api', apiRouter);
+app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,6 +3,14 @@ const router = express.Router(); //Router logic
 
 //This is where we import the controllers we will route
 const tripsController = require('../controllers/trips');
+const authController = require('../controllers/authentication');
+
+
+// define route for registration endpoint
+router 
+    .route('/register')
+    .post(authController.register);
+
 
 //define route for our trips endpoint
 router
