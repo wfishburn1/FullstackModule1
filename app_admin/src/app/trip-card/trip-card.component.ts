@@ -23,7 +23,15 @@ public isLoggedIn()
     return this.authenticationService.isLoggedIn();
 }
 
+
+
 ngOnInit(): void {
+}
+
+public addTrip(trip: Trip){
+    localStorage.removeItem('tripCode');
+    localStorage.setItem('tripCode', trip.code);
+    this.router.navigate(['add-trip']);
 }
 
 public editTrip(trip: Trip){
