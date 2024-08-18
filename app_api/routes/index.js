@@ -59,12 +59,12 @@ router
 router
     .route('/trips')
     .get(tripsController.tripsList) //GET Method routes tripList
-    .post(tripsController.tripsAddTrip); //POST Method Adds a Trip
+    .post(authenticateJWT,tripsController.tripsAddTrip); //POST Method Adds a Trip
 // Get Method routes tripsFindByCode = requires parameter
 router  
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindByCode)
-    .put(tripsController.tripsUpdateTrip);
+    .put(authenticateJWT, tripsController.tripsUpdateTrip);
 
 
 module.exports = router;
