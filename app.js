@@ -1,5 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
+var passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -31,6 +33,8 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(passport.initialzie);
+app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
